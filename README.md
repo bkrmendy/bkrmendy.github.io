@@ -1,1 +1,1 @@
-[SeeHome project](http://http://seehome-1.fuh8pmk7pq.us-west-2.elasticbeanstalk.com)
+[SeeHome project](http://seehome-1.fuh8pmk7pq.us-west-2.elasticbeanstalk.com)
