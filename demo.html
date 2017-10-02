@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="container" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js"></script>
+	<script type="text/javascript" src="../libs/OrbitControls.js"></script>
+	<script>
+		var scene, camera, renderer, controls;
+
+		var mesh = null;
+
+		var WIDTH = window.innerWidth;
+		var HEIGHT = window.innerHeight;
+
+		function init(){
+			initScene();
+			initCamera();
+			initRenderer();
+			initMesh();
+			initLights();
+			initControls();
+			window.addEventListener( 'resize', onWindowResize, false );
+			document.body.appendChild(renderer.domElement);
+		}
+
+		function initScene(){
+			scene = new THREE.Scene();
+		}
+
+		function initCamera(){
+			camera = new THREE.PerspectiveCamera(40, WIDTH/HEIGHT, 1, 100);
+			camera.position.set(5, 10, 5);
+			camera.lookAt(scene.position);
+		}
+
+		function initRenderer(){
+			renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.autoClear = true;
+			renderer.setClearColor(new THREE.Color( 'honeydew' ), 1.0);
+		}
+
+		function initControls() {
+			controls = new THREE.OrbitControls( camera, renderer.domElement);
+			controls.addEventListener( 'change', render ); // remove when using animation loop
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.25;
+			controls.enableZoom = true;
+		}
+
+		function initMesh() {
+			var loader = new THREE.JSONLoader();
+			loader.load('robo.json', function(geometry, materials) {
+				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
+				scene.add(mesh);
+			});
+		}
+
+		function initLights() {
+			var light = new THREE.AmbientLight(0xffffff);
+			scene.add(light);
+		}
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+		}
+
+		function animate() {
+
+			requestAnimationFrame(animate);
+
+			controls.update();
+
+			render();
+
+		}
+
+		function render(){
+			renderer.render(scene, camera);
+		}
+
+		init()
+		animate();
+	</script>
+</body>
+</html>
