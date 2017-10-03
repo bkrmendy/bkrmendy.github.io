@@ -59,7 +59,7 @@
 
 		function initMesh() {
 			var loader = new THREE.JSONLoader();
-			loader.load('robo.json', function(geometry, materials) {
+			loader.load('house.json', function(geometry, materials) {
 				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 				scene.add(mesh);
 			});
