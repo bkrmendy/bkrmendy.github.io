@@ -56,7 +56,6 @@
 			loader.load('house.json', function(geometry, materials) {
 				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 				scene.add(mesh);
-				requestAnimationFrame(animate);
 				showPage();
 			});
 		}
