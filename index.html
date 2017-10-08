@@ -4,7 +4,7 @@
 	<title></title>
 	<link rel="stylesheet" href="styles.css" />
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js"></script>
-	<script type="text/javascript" src="../libs/OrbitControls.js"></script>
+	<script type="text/javascript" src="OrbitControls.js"></script>
 	<script>
 		var scene, camera, renderer, controls, timeOut;
 
@@ -52,7 +52,7 @@
 		function initMesh() {
 			var manager = new THREE.LoadingManager();
 			var loader = new THREE.JSONLoader();
-			loader.load('/Users/its_behind_you/practice/blender/house.json', function(geometry, materials) {
+			loader.load('house.json', function(geometry, materials) {
 				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 				scene.add(mesh);
 				showPage();
