@@ -51,11 +51,11 @@
 
 		function initMesh() {
 			var manager = new THREE.LoadingManager();
-			var loader = new THREE.JSONLoader();
+			manager.onLoad = showPage;
+			var loader = new THREE.JSONLoader(manager);
 			loader.load('house.json', function(geometry, materials) {
 				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 				scene.add(mesh);
-				showPage();
 			});
 		}
 
