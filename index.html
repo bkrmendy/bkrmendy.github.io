@@ -2,18 +2,11 @@
 <html>
 <head>
 	<title></title>
-	<style>
-		body {
-			margin: 0;
-		}
-	</style>
-</head>
-<body>
-	<div id="container" />
+	<link rel="stylesheet" href="styles.css" />
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js"></script>
-	<script type="text/javascript" src="OrbitControls.js"></script>
+	<script type="text/javascript" src="../libs/OrbitControls.js"></script>
 	<script>
-		var scene, camera, renderer, controls;
+		var scene, camera, renderer, controls, timeOut;
 
 		var mesh = null;
 
@@ -28,7 +21,6 @@
 			initLights();
 			initControls();
 			window.addEventListener( 'resize', onWindowResize, false );
-			document.body.appendChild(renderer.domElement);
 		}
 
 		function initScene(){
@@ -58,10 +50,12 @@
 		}
 
 		function initMesh() {
+			var manager = new THREE.LoadingManager();
 			var loader = new THREE.JSONLoader();
-			loader.load('house.json', function(geometry, materials) {
+			loader.load('/Users/its_behind_you/practice/blender/house.json', function(geometry, materials) {
 				mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
 				scene.add(mesh);
+				showPage();
 			});
 		}
 
@@ -90,8 +84,18 @@
 			renderer.render(scene, camera);
 		}
 
+		function showPage() {
+			document.body.appendChild(renderer.domElement);
+  		document.getElementById("loader").style.display = "none";
+  		document.getElementById("container").style.display = "block";
+		}
+
 		init()
 		animate();
 	</script>
+</head>
+<body>
+	<div id="loader"></div>
+	<div id="container"></div>
 </body>
 </html>
