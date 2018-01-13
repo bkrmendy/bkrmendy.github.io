@@ -2,5 +2,4 @@
 title: my awesome page
 -------
 
-[SeeHome project](http://seehome-1.fuh8pmk7pq.us-west-2.elasticbeanstalk.com)
-
+Ayy lmao
