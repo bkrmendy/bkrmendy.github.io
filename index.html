@@ -61,7 +61,43 @@ body {
 </div>
 <button class="accordion">Mik a 2G rendszerek jellemzői?</button>
 <div class="panel">
-  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak.</p>
+  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak. </p>
+</div>
+<button class="accordion">Mik az új koncepciók a GSM rendszerben?</button>
+<div class="panel">
+  <p>A GSM egy közös, európai rendszernek lett tervezve, ahol csak a hívó fél fizet a hívásért.</p>
+<p>Elérhető szolgáltatás volt a roaming, az SMS és a titkosított beszédátvitel.</p>
+<p>Az előfizetőket SIM kártya azonosította, így adataik készülékfüggetlenek maradtak.</p>
+</div>
+<button class="accordion">Mik a GSM rendszer paraméterei (sugárzási teljesítmény, cella nagysága)?</button>
+<div class="panel">
+  <p>Sugárzási teljesítmény: 2 W és adaptív, azaz csak a minimális szükségessel ad a végberendezés. Ez kíméli a telefon akkumulátorát, minimalizálja az élettani kockázatot és nem zavarja a többi cellát.</p>
+<p>A cella átmérője 500m és 35 km között változhat (tervezői döntés az adott tartományon belül, függ a frekvenciától, forgalomsűrűségtől, terjedési viszonyoktól).</p>
+</div>
+<button class="accordion">Milyen multiplexálási stratégiákat használ a GSM?</button>
+<div class="panel">
+  <p>TDMA és FDMA (Time Division Multiple Access és Frequency Division Multiple Access).</p>
+</div>
+<button class="accordion">Mik a GSM 900 jellemzői?</button>
+<div class="panel">
+  <p>A mobil adó 890-915 MHz, bázisállomás 935-960 MHz-en ad (e tartományban kisebb frekvencia kisebb csillapítást szenved, így kisebb teljesítményt igényel, ezért a mobil adóé az alsó sáv).</p>
+<p>25 MHz-es sáv, egy vivő 200 kHz -> 124 vivő  (FDMA).  Ezen az összes helyi szolgáltató osztozik, hazánkban kb. 40 vivő (frekvenciasáv)/szolgáltató e sávban.</p>
+<p>Vivőnként 8 db időrést (TDMA) ajánl fel. 40*8/10 ~ 32 csatorna / cella (10 féle frekvenciakiosztású cella létezik).</p>
+<p>Kb. 32 egyidejű beszélgetés folyhat egy cellában. Half Rate kódolással kétszer annyi csatorna érhető el (de rosszabb minőséggel, így ezt nem minden esetben használják, a GSM 1800 orvosolja ezt a problémát).</p>
+<p>Maximum 35 km a cellaátmérő, mivel a 900 MHz körüli hullámok valamelyest követik a földfelszínt. Így országos lefedésre alkalmas a technológia.</p>
+</div>
+<button class="accordion">Mik a GSM 1800 jellemzői?</button>
+<div class="panel">
+  <p>A mobil adó: 1710-1785 MHz, bázisállomás: 1805-1880 MHz-en ad. 75 MHz-es sáv (plusz háromszoros kapacitás a GSM 900-hoz képest), de rosszabb a hullámterjedése (egyenesen terjed, gyorsabban csillapodik). Emiatt országos lefedésre nem, csak nagy forgalmú kis területek ellátására alkalmas.</p>
+</div>
+<button class="accordion">Hogy működik a GSM átadás?</button>
+<div class="panel">
+  <p>A GSM valós áramkörkapcsolás, így ha a mobil végberendezés átmegy egy másik cellába: átadás (handover v. handoff) történik, közben nem szakad meg a kapcsolat.</p>
+<p>Három handover stratégia létezik:</p>
+<p>1. a mobil végberendezés irányításával: méri, mikor erősebb egy másik cella jele</p>
+<p>2. a hálózat irányításával: az dönt a jelerősség és esetleg más információk (pl. cella terheltsége) alapján</p>
+<p>3. a hálózat irányításával, a mobil készülék segítségével: a hálózat megkéri a végberendezést, hogy küldjön jelerősségi információt, de a döntést a hálózat hozza.</p>
+<p>A GSM-ben a 3. típusú van megvalósítva (így pl. egy leterhelt cellába csak később lépteti be a hálózat az oda közeledő végberendezést).</p>
 </div>
 
 
