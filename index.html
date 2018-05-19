@@ -4,27 +4,36 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body {
+    background: #eff2d8;
+    font-family: sans-serif;
+}
+.title {
+    text-align: center;
+}
 .accordion {
-    background-color: #eee;
+    width: 80%;
+    margin: 5px auto;
+    background-color: #81b0b2;
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
+    font-weight: bold;
     transition: 0.4s;
+    display: block;
 }
-
 .active, .accordion:hover {
-    background-color: #ccc;
+    background-color: #00738c;
 }
-
 .panel {
     padding: 0 18px;
+    width: 75%;
+    margin: 5px auto;
     display: none;
-    background-color: white;
     overflow: hidden;
 }
 </style>
@@ -52,11 +61,7 @@
 </div>
 <button class="accordion">Mik a 2G rendszerek jellemzői?</button>
 <div class="panel">
-  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak. </p>
-</div>
-<button class="accordion"></button>
-<div class="panel">
-  <p></p>
+  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak.</p>
 </div>
 
 
