@@ -4,47 +4,34 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-body {
-    background: #eff2d8;
-    font-family: sans-serif;
-}
-
-.title {
-    text-align: center;
-}
 .accordion {
-    width: 80%;
-    margin: 5px auto;
-    background-color: #81b0b2;
+    background-color: #eee;
     color: #444;
     cursor: pointer;
     padding: 18px;
+    width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
-    font-weight: bold;
     transition: 0.4s;
-    display: block;
 }
 
 .active, .accordion:hover {
-    background-color: #00738c;
+    background-color: #ccc;
 }
 
 .panel {
     padding: 0 18px;
-    width: 75%;
-    margin: 5px auto;
     display: none;
+    background-color: white;
     overflow: hidden;
 }
 </style>
 </head>
 <body>
 
-<h2 class="title">KÉRDÉSEK</h2>
+<h2>KÉRDÉSEK</h2>
 
 <button class="accordion">Mi a cellás elv?</button>
 <div class="panel">
@@ -62,7 +49,14 @@ body {
 <p>Analóg rendszer, sok, egymással nem kompatiblis megvalósítása volt (Nordic Mobile Telephone System).</p>
 <p>Viszonylag nagy (35-50 km) átmérőjű cellákból állt, jellemzően 450 MHz körüli frekvenciasávval.</p>
 <p>Gyenge volt a beszédátviteli minőség, kevés szolgáltatásfajtát támogatott.</p>
-<p></p>
+</div>
+<button class="accordion">Mik a 2G rendszerek jellemzői?</button>
+<div class="panel">
+  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak. </p>
+</div>
+<button class="accordion"></button>
+<div class="panel">
+  <p></p>
 </div>
 
 
