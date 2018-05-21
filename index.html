@@ -1,240 +1,315 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-    background: #eff2d8;
-    font-family: sans-serif;
-}
-.title {
-    text-align: center;
-}
-.accordion {
-    width: 80%;
-    margin: 5px auto;
-    background-color: #81b0b2;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.4s;
-    display: block;
-}
-.active, .accordion:hover {
-    background-color: #00738c;
-}
-.panel {
-    padding: 0 18px;
-    width: 75%;
-    margin: 5px auto;
-    display: none;
-    overflow: hidden;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #eff2d8;
+      font-family: sans-serif;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .accordion {
+      width: 80%;
+      margin: 5px auto;
+      background-color: #81b0b2;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      font-weight: bold;
+      transition: 0.4s;
+      display: block;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #00738c;
+      color: #eff2d8;
+    }
+
+    .panel {
+      padding: 0 18px;
+      width: 75%;
+      margin: 5px auto;
+      display: none;
+      overflow: hidden;
+    }
+  </style>
 </head>
+
 <body>
 
-<h2 class="title">KÉRDÉSEK</h2>
+  <h2 class="title">KÉRDÉSEK</h2>
 
-<button class="accordion">Mi a cellás elv?</button>
-<div class="panel">
-  <p>A cellás elvben a frekvencia-tartomány X részre van felosztva, mindegyik cellában a frekvenciatartomány 1/X-ed részét használják.</p>
-<p>Mivel az azonos frekvenciákat használó cellák nem fedik át egymást, nincs interferencia közöttük.</p>
-</div>
-<button class="accordion">Mi a különböző cellaméretek előnyei/hátrányai?</button>
-<div class="panel">
-  <p>A kisebb cellák előnye, hogy kis adóteljesítmény elég (kisebb élettani kockázat, kisebb fogyasztás), és hogy nagyobb forgalom bonyolítható adott területen (nagyobb forgalomsűrűség).</p>
-<p>Hátránya, hogy sok bázisáloomásra van szükség (rontja a látképet, drága felépíteni).</p>
-</div>
-<button class="accordion">Mik az 1G rendszerek jellemzői?</button>
-<div class="panel">
-  <p>1970-80-as években alakultak ki.</p>
-<p>Analóg rendszer, sok, egymással nem kompatiblis megvalósítása volt (Nordic Mobile Telephone System).</p>
-<p>Viszonylag nagy (35-50 km) átmérőjű cellákból állt, jellemzően 450 MHz körüli frekvenciasávval.</p>
-<p>Gyenge volt a beszédátviteli minőség, kevés szolgáltatásfajtát támogatott.</p>
-</div>
-<button class="accordion">Mik a 2G rendszerek jellemzői?</button>
-<div class="panel">
-  <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak. </p>
-</div>
-<button class="accordion">Mik az új koncepciók a GSM rendszerben?</button>
-<div class="panel">
-  <p>A GSM egy közös, európai rendszernek lett tervezve, ahol csak a hívó fél fizet a hívásért.</p>
-<p>Elérhető szolgáltatás volt a roaming, az SMS és a titkosított beszédátvitel.</p>
-<p>Az előfizetőket SIM kártya azonosította, így adataik készülékfüggetlenek maradtak.</p>
-</div>
-<button class="accordion">Mik a GSM rendszer paraméterei (sugárzási teljesítmény, cella nagysága)?</button>
-<div class="panel">
-  <p>Sugárzási teljesítmény: 2 W és adaptív, azaz csak a minimális szükségessel ad a végberendezés. Ez kíméli a telefon akkumulátorát, minimalizálja az élettani kockázatot és nem zavarja a többi cellát.</p>
-<p>A cella átmérője 500m és 35 km között változhat (tervezői döntés az adott tartományon belül, függ a frekvenciától, forgalomsűrűségtől, terjedési viszonyoktól).</p>
-</div>
-<button class="accordion">Milyen multiplexálási stratégiákat használ a GSM?</button>
-<div class="panel">
-  <p>TDMA és FDMA (Time Division Multiple Access és Frequency Division Multiple Access).</p>
-</div>
-<button class="accordion">Mik a GSM 900 jellemzői?</button>
-<div class="panel">
-  <p>A mobil adó 890-915 MHz, bázisállomás 935-960 MHz-en ad (e tartományban kisebb frekvencia kisebb csillapítást szenved, így kisebb teljesítményt igényel, ezért a mobil adóé az alsó sáv).</p>
-<p>25 MHz-es sáv, egy vivő 200 kHz -> 124 vivő  (FDMA).  Ezen az összes helyi szolgáltató osztozik, hazánkban kb. 40 vivő (frekvenciasáv)/szolgáltató e sávban.</p>
-<p>Vivőnként 8 db időrést (TDMA) ajánl fel. 40*8/10 ~ 32 csatorna / cella (10 féle frekvenciakiosztású cella létezik).</p>
-<p>Kb. 32 egyidejű beszélgetés folyhat egy cellában. Half Rate kódolással kétszer annyi csatorna érhető el (de rosszabb minőséggel, így ezt nem minden esetben használják, a GSM 1800 orvosolja ezt a problémát).</p>
-<p>Maximum 35 km a cellaátmérő, mivel a 900 MHz körüli hullámok valamelyest követik a földfelszínt. Így országos lefedésre alkalmas a technológia.</p>
-</div>
-<button class="accordion">Mik a GSM 1800 jellemzői?</button>
-<div class="panel">
-  <p>A mobil adó: 1710-1785 MHz, bázisállomás: 1805-1880 MHz-en ad. 75 MHz-es sáv (plusz háromszoros kapacitás a GSM 900-hoz képest), de rosszabb a hullámterjedése (egyenesen terjed, gyorsabban csillapodik). Emiatt országos lefedésre nem, csak nagy forgalmú kis területek ellátására alkalmas.</p>
-</div>
-<button class="accordion">Hogy működik a GSM átadás?</button>
-<div class="panel">
-  <p>A GSM valós áramkörkapcsolás, így ha a mobil végberendezés átmegy egy másik cellába: átadás (handover v. handoff) történik, közben nem szakad meg a kapcsolat.</p>
-<p>Három handover stratégia létezik:</p>
-<p>1. a mobil végberendezés irányításával: méri, mikor erősebb egy másik cella jele</p>
-<p>2. a hálózat irányításával: az dönt a jelerősség és esetleg más információk (pl. cella terheltsége) alapján</p>
-<p>3. a hálózat irányításával, a mobil készülék segítségével: a hálózat megkéri a végberendezést, hogy küldjön jelerősségi információt, de a döntést a hálózat hozza.</p>
-<p>A GSM-ben a 3. típusú van megvalósítva (így pl. egy leterhelt cellába csak később lépteti be a hálózat az oda közeledő végberendezést).</p>
-</div>
-<button class="accordion">Hogy épül fel a GSM hálózat?</button>
-<div class="panel">
-  <p>(2. diasor -> 16-17. dia)</p>
-</div>
-<button class="accordion">Mi a bázisállomás-alrendszer (BTS) feladata?</button>
-<div class="panel">
-  <p>A BTS egy vagy több elemi adó/vevőből (elementary transmitter/receiver) áll.</p>
-<p>A bázisállomás-vezérlő (BSC) egy vagy több bázisállomást vezérel, 1) a beszédcsatornák összekötését (kapcsolás), 2) a rádiócsatorna-hozzárendelést, 3) és a hívásátadás-vezérlést kezeli (kapcsolás), </p>
-</div>
-<button class="accordion">Mik tartoznak a hálózati alrendszerhez (MSC)?</button>
-<div class="panel">
-  <p>Az MSC egy hagyományos telefonközpont, mobil-specifikus bővítésekkel: authentikáció, helyzetnyilvántartás, hívásátadás BSC-k között, barangolás stb.</p>
-<p>Az MSC tartalmazza a látogatói helyregisztert (VLR) is. A VLR a HLR információinak egy részét tárolja ideiglenesen (ami a hívásfelépítéshez szükséges) az ott tartózkodó mobil állomásokról.</p>
-<p>A HLR az előfizetőre vonatkozó adatokat, szolgáltatási jogosultságokat, tartózkodási helyet tárolja. Hálózatonként egy HLR van jelen.</p>
-<p>Ezen kívül a hitelesítő központ (Authentication Center, AuC) is az MSC része.</p>
-</div>
-<button class="accordion">Milyen azonosítók léteznek a GSM-ben?</button>
-<div class="panel">
-  <p>MSISDN: Mobile Station ISDN Number, mobil állomás ISDN szám. Ez a jól ismert mobil telefonszám, egyedi a világon. Előállítása: országkód (Mo.: 36) + hálózatkijelölő szám (Mo:20/30/70) + előfizetői szám.</p>
-<p>IMSI: International Mobile Subscriber Identity, nemzetközi mobil előfizető azonosító. A GSM hálózatokban elsősorban ez azonosítja az előfizetőt: az adatbázisok ezzel vannak indexelve. A SIM kártyához van rendelve, egyedi a világon. Előállítása: IMSI = mobil országkód (Mo: 216) + mobil hálózati kód (Mo.:01/30/70) + 10 jegyű mobil előfizető azonosító szám. szolgáltatóváltásnál az MSISDN maradhat, de a SIM kártyát és ezzel együtt az IMSI-t cserélni kell.</p>
-<p>IMEI: International Mobile Equipment Identity, nemzetközi mobilkészülék-azonosító. A végberendezést azonosítja, egyedi a világon. Előállítása: <készülékazonosító> (8 jegyű) + <gyári szám> (6 jegyű) + <ellenőrző számjegy> (1 jegyű) (+<szoftver verzió>). Lekérdezése: *#06#</p>
-<p>MSRN: Mobile Station Roaming Number, barangoló szám. Egy VLR-hez tartozó helyi címtartományba tartozó telefonszám, amit az arra járó GSM készülék ideiglenesen használ. A felhasználó számára transzparens, nem látszik. Ez teszi lehetővé, hogy a szám utaljon a földrajzi helyre: ebből a számból már tudni, hogy merre kell keresni az adott készüléket, ha felhívja valaki.</p>
-</div>
-<button class="accordion">Hogy van nyilvántartva a végberendezés helye a GSM-ben?</button>
-<div class="panel">
-  <p>Cella szinten való nyilvántartással az a gond, hogy túl gyakran kéne frissíteni, és nagy hálózati forgalom alakulna ki.</p>
-<p>Országos szinten nyilvántartáskor túl nagy területen kéne keresni (pl. beérkező híváskor), és szintén túl nagy a forgalom.</p>
-<p>A probléma megoldására egy kompromisszum alakult ki: a Location Area. Néhány (tipikusan 20-30) cella együttese, a köztük való cellaváltáskor nincs helyzetfrissítés (Location update). Csak LA váltáskor van helyzetfrissítés. Bejövő híváskor/SMS-kor broadcast keresési üzenet (paging) a Location Area-ban. Alapvetően ennél pontosabban nem tárolja a hálózat, hogy hol vagyunk!</p>
-</div>
-<button class="accordion">Milyen GSM szolgáltatások léteznek?</button>
-<div class="panel">
-  <p>Beszédátvitel: a kodek sebessége 13 kb/s (később: 5,6 kb/s is). Kompromisszum: viszonylag gyenge hangminőség, jobb a frekvenciakihasználtság.</p>
-<p>SMS: Short Message Service, rövid szöveges üzenet szolgáltatás, maximum 160 karakteres üzeneteket lehet küldeni.</p>
-<p>Adatátvitel: kezdetben 9,6 kb/s, később 14,4 kb/s, majd ez folyamatosan nőtt.</p>
-<p>MMS: Multimedia Messaging Service, multimédia üzenetküldő szolgáltatás: multimédia üzenet: kép, írott szöveg, hang együtt, 2002-től elérhető.</p>
-</div>
-<button class="accordion">Miben egészítette ki a GPRS a GSM-et?</button>
-<div class="panel">
-  <p>GPRS (General Packet Radio Service, általános csomag alapú rádiós szolgáltatás), csomagkapcsolt adatátvitellel egészítette ki a GSM-et. Előnye a jobb kihasználtság, és fizetés kilobájt alapon, nem perc szerint. Adatsebesség kb. 60-80 kb/s. Komoly hálózatfejlesztést igényelt.</p>
-</div>
-<button class="accordion">Hogy néz ki a GSM/GPRS hálózat?</button>
-<div class="panel">
-  <p>(2/27-28)</p>
-</div>
-<button class="accordion">Miben egészítette ki az EDGE a GSM-et?</button>
-<div class="panel">
-  <p>Az EDGE (Enhanced Data Rate for Global/GSM Evolution) 2003-ban jelent meg, javított modulációs eljárást hozott be: eredetileg 1 bit/szimbólum volt (Gaussian minimum shift keying, GMSK), és ezt javította 8PSK, 3 bit/szimbólumra (háromszoros adatátviteli sebesség). Ez csak jobb jel/zaj viszony esetén működik (kevésbé zavartűrő). Az adatsebesség kb. 150-180 kb/s lett.</p>
-</div>
-<button class="accordion">Mik az áramkörkapcsolás jellemzői?</button>
-<div class="panel">
-  <p>A klasszikus telefonhálózatok voltak áramkörkapcsoltak. Végponttól végpontig garantált minőségű csatornát szolgáltat. A kommunikáció előtt hívásfelépítés, utána pedig lebontás történik. A csatornát csak a hívó és a hívott fél használhatja, ha éppen nem beszélnek, üres a csatorna. Lehet fizikailag egy áramkör, de lehet általánosabb értelemben egy csatorna (pl. adott időrés, adott frekvencia egy nyalábolt átviteli rendszerben).</p>
-</div>
-<button class="accordion">Miben változtatott ehhez képest a csomagkapcsolás?</button>
-<div class="panel">
-  <p>A számítógép-hálózatok újdonsága volt, az átvitt információt kis csomagokra bontva továbbítja. Nem kell hívásfelépítés, bontás a használthoz. Előnye a statikus multiplexelés: ha épp nincs kommunikáció, más is használhatja a csatornát, így összességében nagyobb forgalom bonyolítható le ugyanakkora csatornán (és így olcsóbb is). Hátránya, hogy a minőség (Quality of Service, QoS) nem garantált, külön feladat marad.</p>
-</div>
-<button class="accordion">Mik az UMTS céljai?</button>
-<div class="panel">
-  <p>GSM-nél jobb beszédhangminőség, GSM-nél jobb frekvenciakihasználtság, GSM-nél nagyobb adatátviteli sebesség, GSM kompatibilitás.</p>
-</div>
-<button class="accordion">Milyen szolgáltatásokat nyújt az UMTS?</button>
-<div class="panel">
-  <p>Beszédátvitel az AMR kodekkel (4,7 - 12,2 kb/s)</p>
-<p>Adatátvitel, Internet-elérés 3G-n keresztül (városban max 384 kb/s, vidéken 144 kb/s)</p>
-<p>Multimédia szolgáltatások 3G felett: Videótelefonálás, TV adások közvetítése, rádióhallgatás , filmek, zenék letöltése – ezek nem váltak be.</p>
-</div>
-<button class="accordion">Hogy néz ki az UMTS hálózat?</button>
-<div class="panel">
-  <p>(3. diasor -> 7.oldal)</p>
-</div>
-<button class="accordion">Milyen duplexitás-kezelést használ az UMTS? (2)</button>
-<div class="panel">
-  <p>FDD (nagyobb frekvencia a lefele irányban (nagyobb csillapítás nagyobb teljesítmény kell), TDD (a fel- és letöltés időben váltakozik ugyanabban a frekvenciasávban, előnye: a fel/letöltés aránya dinamikusan változtatható az aktuális igények függvényében).</p>
-</div>
-<button class="accordion">Hány MHz-s csatornákra osztják a rádiós közeget és milyen közeghozzáférést alkalmaznak benne?</button>
-<div class="panel">
-  <p>5 MHz, CDMA</p>
-</div>
-<button class="accordion">Hogy működik a CDMA?</button>
-<div class="panel">
-  <p>Minden jel „szét van kenve” a teljes spektrumra, de kis teljesítménnyel. Célja a jobb spektrumkihasználtság.</p>
-</div>
-<button class="accordion">Mik az UMTS kódosztás lépései?</button>
-<div class="panel">
-  <p>1. Csatornakódolás</p>
-<p>2. Csatornázási kódolás</p>
-<p>3. Keverő kódolás</p>
-<p>4. Rádiófrekvenciás modulálás, kisugárzás</p>
-</div>
-<button class="accordion">Mit csinál a csatornázási kód?</button>
-<div class="panel">
-  <p>E kód a keskenysávú bemenő jelet szélessávúvá alakítja. A kiterjesztési faktor változik 4 és 512 között mozog: azt adja meg, hogy hányszorosa lesz a chipsebesség a bitsebességnek (másképpen: hány chip hosszú egy szóró kód, hány db szóró kód van). </p>
-<p>A chipsebesség viszont mindig fix: 3 840 000 chip/sec</p>
-</div>
-<button class="accordion"></button>
-<div class="panel">
-  <p># Hogy működik a csatornázási kód?</p>
-<p>A digitális jelet összeszorozzuk (pontosabban: NOT(XOR(b1, b2))) egy ún. szóró kóddal (spreading code), és ezt sugározzuk ki. A szóró kód bitsebességge (chiprate) sokkal nagyobb (kb. 100x), mint a jelé.</p>
-<p>A szóró kódok ortogonálisak, azaz egy bitidőre átlagolva két szórókód szorzatát nullát kapunk.</p>
-</div>
-<button class="accordion">Miért működik ez tökéletesen ortogonális csatornázási kódokkal?</button>
-<div class="panel">
-  <p><Kidolgozni></p>
-<p>Azonban az ortogonalitás csak akkor teljesül, ha pontosan egy fázisban vannak a kódok. Nem azonos kezdőfázis esetén sem magával, sem másik kóddal nem nulla a korrelációja, azaz közös órajel kell.</p>
-<p>Gyakorlatban: azonos adó különböző csatornáinak elválasztására használják.</p>
-</div>
-<button class="accordion">Hogyan lehet OVSF kódokat generálni?</button>
-<div class="panel">
-  <p>C2x,2y-1=(Cx,y,Cx,y) és C2x,2y =(Cx,y,-Cx,y)</p>
-<p>Látszik, hogy 2n hosszú kódból 2n darab van.</p>
-<p>Ortogonálitás bizonyítása: teljes indukcióval</p>
-</div>
-<button class="accordion">Mi a keverő kódolás célja?</button>
-<div class="panel">
-  <p>A keverő kódok csak kvázi ortogonálisak egymásra, ugyanakkor önmaguk időbeli eltoltjára is kvázi ortogonálisak. Fajtájuk ún. pseudo-noise, „ál-zaj” kódok, nevük Gold kód.</p>
-<p>Célja az adóberendezések megkülönböztetése. Adónként van egy ilyen kód: lefele irány: cellák (azaz Node B-k) elkülönítése, felfele irány: végberendezések elkülönítése. Nem igényelnek szinkronizációt a források között, azonban nem teljes az ortogonalitás: a vevő az egyik forrás jelének dekódolásakor a többi forrás jelét enyhe zajnak érzékeli. A cella kapacitását itt az szabja meg, hogy meddig nem zavaró még ez a zaj a dekódolásban.</p>
-<p>Az NOT(XOR(a,b)) szorzás itt bitenként történik: egy bit a kódolandó jelfolyamból, egy bit a kódból. A kódszavak hossza: lefele: 38 400 bit (10 msec-enként ismétlődik), felfele: 38 400 bit, vagy 256 bit. Ez utóbbi, ha a Node B speciális vevővel rendelkezik (ún. rake vevő).</p>
-</div>
+  <button class="accordion">Mi a cellás elv?</button>
+  <div class="panel">
+    <p>A cellás elvben a frekvencia-tartomány X részre van felosztva, mindegyik cellában a frekvenciatartomány 1/X-ed részét
+      használják.
+    </p>
+    <p>Mivel az azonos frekvenciákat használó cellák nem fedik át egymást, nincs interferencia közöttük.</p>
+  </div>
+  <button class="accordion">Mi a különböző cellaméretek előnyei/hátrányai?</button>
+  <div class="panel">
+    <p>A kisebb cellák előnye, hogy kis adóteljesítmény elég (kisebb élettani kockázat, kisebb fogyasztás), és hogy
+      nagyobb forgalom bonyolítható adott területen (nagyobb forgalomsűrűség).</p>
+    <p>Hátránya, hogy sok bázisáloomásra van szükség (rontja a látképet, drága felépíteni).</p>
+  </div>
+  <button class="accordion">Mik az 1G rendszerek jellemzői?</button>
+  <div class="panel">
+    <p>1970-80-as években alakultak ki.</p>
+    <p>Analóg rendszer, sok, egymással nem kompatiblis megvalósítása volt (Nordic Mobile Telephone System).</p>
+    <p>Viszonylag nagy (35-50 km) átmérőjű cellákból állt, jellemzően 450 MHz körüli frekvenciasávval.</p>
+    <p>Gyenge volt a beszédátviteli minőség, kevés szolgáltatásfajtát támogatott.</p>
+  </div>
+  <button class="accordion">Mik a 2G rendszerek jellemzői?</button>
+  <div class="panel">
+    <p>Az 1990-es évek elejétől jelentek meg, és az 1G-vel szemben már digitális rendszerek voltak. </p>
+  </div>
+  <button class="accordion">Mik az új koncepciók a GSM rendszerben?</button>
+  <div class="panel">
+    <p>A GSM egy közös, európai rendszernek lett tervezve, ahol csak a hívó fél fizet a hívásért.</p>
+    <p>Elérhető szolgáltatás volt a roaming, az SMS és a titkosított beszédátvitel.</p>
+    <p>Az előfizetőket SIM kártya azonosította, így adataik készülékfüggetlenek maradtak.</p>
+  </div>
+  <button class="accordion">Mik a GSM rendszer paraméterei (sugárzási teljesítmény, cella nagysága)?</button>
+  <div class="panel">
+    <p>Sugárzási teljesítmény: 2 W és adaptív, azaz csak a minimális szükségessel ad a végberendezés. Ez kíméli a telefon
+      akkumulátorát, minimalizálja az élettani kockázatot és nem zavarja a többi cellát.</p>
+    <p>A cella átmérője 500m és 35 km között változhat (tervezői döntés az adott tartományon belül, függ a frekvenciától,
+      forgalomsűrűségtől, terjedési viszonyoktól).</p>
+  </div>
+  <button class="accordion">Milyen multiplexálási stratégiákat használ a GSM?</button>
+  <div class="panel">
+    <p>TDMA és FDMA (Time Division Multiple Access és Frequency Division Multiple Access).</p>
+  </div>
+  <button class="accordion">Mik a GSM 900 jellemzői?</button>
+  <div class="panel">
+    <p>A mobil adó 890-915 MHz, bázisállomás 935-960 MHz-en ad (e tartományban kisebb frekvencia kisebb csillapítást szenved,
+      így kisebb teljesítményt igényel, ezért a mobil adóé az alsó sáv).</p>
+    <p>25 MHz-es sáv, egy vivő 200 kHz -> 124 vivő (FDMA). Ezen az összes helyi szolgáltató osztozik, hazánkban kb. 40
+      vivő (frekvenciasáv)/szolgáltató e sávban.</p>
+    <p>Vivőnként 8 db időrést (TDMA) ajánl fel. 40*8/10 ~ 32 csatorna / cella (10 féle frekvenciakiosztású cella létezik).</p>
+    <p>Kb. 32 egyidejű beszélgetés folyhat egy cellában. Half Rate kódolással kétszer annyi csatorna érhető el (de rosszabb
+      minőséggel, így ezt nem minden esetben használják, a GSM 1800 orvosolja ezt a problémát).</p>
+    <p>Maximum 35 km a cellaátmérő, mivel a 900 MHz körüli hullámok valamelyest követik a földfelszínt. Így országos
+      lefedésre alkalmas a technológia.</p>
+  </div>
+  <button class="accordion">Mik a GSM 1800 jellemzői?</button>
+  <div class="panel">
+    <p>A mobil adó: 1710-1785 MHz, bázisállomás: 1805-1880 MHz-en ad. 75 MHz-es sáv (plusz háromszoros kapacitás a GSM
+      900-hoz képest), de rosszabb a hullámterjedése (egyenesen terjed, gyorsabban csillapodik). Emiatt országos lefedésre
+      nem, csak nagy forgalmú kis területek ellátására alkalmas.</p>
+  </div>
+  <button class="accordion">Hogy működik a GSM átadás?</button>
+  <div class="panel">
+    <p>A GSM valós áramkörkapcsolás, így ha a mobil végberendezés átmegy egy másik cellába: átadás (handover v. handoff)
+      történik, közben nem szakad meg a kapcsolat.</p>
+    <p>Három handover stratégia létezik:</p>
+    <p>1. a mobil végberendezés irányításával: méri, mikor erősebb egy másik cella jele</p>
+    <p>2. a hálózat irányításával: az dönt a jelerősség és esetleg más információk (pl. cella terheltsége) alapján</p>
+    <p>3. a hálózat irányításával, a mobil készülék segítségével: a hálózat megkéri a végberendezést, hogy
+      küldjön jelerősségi információt, de a döntést a hálózat hozza.</p>
+    <p>A GSM-ben a 3. típusú van megvalósítva (így pl. egy leterhelt cellába csak később lépteti be a hálózat az oda
+      közeledő végberendezést).</p>
+  </div>
+  <button class="accordion">Hogy épül fel a GSM hálózat?</button>
+  <div class="panel">
+    <p>(2. diasor -> 16-17. dia)</p>
+  </div>
+  <button class="accordion">Mi a bázisállomás-alrendszer (BTS) feladata?</button>
+  <div class="panel">
+    <p>A BTS egy vagy több elemi adó/vevőből (elementary transmitter/receiver) áll.</p>
+    <p>A bázisállomás-vezérlő (BSC) egy vagy több bázisállomást vezérel, 1) a beszédcsatornák összekötését (kapcsolás),
+      2) a rádiócsatorna-hozzárendelést, 3) és a hívásátadás-vezérlést kezeli (kapcsolás), </p>
+  </div>
+  <button class="accordion">Mik tartoznak a hálózati alrendszerhez (MSC)?</button>
+  <div class="panel">
+    <p>Az MSC egy hagyományos telefonközpont, mobil-specifikus bővítésekkel: authentikáció, helyzetnyilvántartás, hívásátadás
+      BSC-k között, barangolás stb.</p>
+    <p>Az MSC tartalmazza a látogatói helyregisztert (VLR) is. A VLR a HLR információinak egy részét tárolja ideiglenesen
+      (ami a hívásfelépítéshez szükséges) az ott tartózkodó mobil állomásokról.</p>
+    <p>A HLR az előfizetőre vonatkozó adatokat, szolgáltatási jogosultságokat, tartózkodási helyet tárolja. Hálózatonként
+      egy HLR van jelen.</p>
+    <p>Ezen kívül a hitelesítő központ (Authentication Center, AuC) is az MSC része.</p>
+  </div>
+  <button class="accordion">Milyen azonosítók léteznek a GSM-ben?</button>
+  <div class="panel">
+    <p>MSISDN: Mobile Station ISDN Number, mobil állomás ISDN szám. Ez a jól ismert mobil telefonszám, egyedi a világon.
+      Előállítása: országkód (Mo.: 36) + hálózatkijelölő szám (Mo:20/30/70) + előfizetői szám.</p>
+    <p>IMSI: International Mobile Subscriber Identity, nemzetközi mobil előfizető azonosító. A GSM hálózatokban elsősorban
+      ez azonosítja az előfizetőt: az adatbázisok ezzel vannak indexelve. A SIM kártyához van rendelve, egyedi a világon.
+      Előállítása: IMSI = mobil országkód (Mo: 216) + mobil hálózati kód (Mo.:01/30/70) + 10 jegyű mobil előfizető
+      azonosító szám. szolgáltatóváltásnál az MSISDN maradhat, de a SIM kártyát és ezzel együtt az IMSI-t cserélni
+      kell.
+    </p>
+    <p>IMEI: International Mobile Equipment Identity, nemzetközi mobilkészülék-azonosító. A végberendezést azonosítja,
+      egyedi a világon. Előállítása:
+      <készülékazonosító> (8 jegyű) +
+        <gyári szám> (6 jegyű) +
+          <ellenőrző számjegy> (1 jegyű) (+
+            <szoftver verzió>). Lekérdezése: *#06#</p>
+    <p>MSRN: Mobile Station Roaming Number, barangoló szám. Egy VLR-hez tartozó helyi címtartományba tartozó telefonszám,
+      amit az arra járó GSM készülék ideiglenesen használ. A felhasználó számára transzparens, nem látszik. Ez
+      teszi lehetővé, hogy a szám utaljon a földrajzi helyre: ebből a számból már tudni, hogy merre kell keresni
+      az adott készüléket, ha felhívja valaki.</p>
+  </div>
+  <button class="accordion">Hogy van nyilvántartva a végberendezés helye a GSM-ben?</button>
+  <div class="panel">
+    <p>Cella szinten való nyilvántartással az a gond, hogy túl gyakran kéne frissíteni, és nagy hálózati forgalom alakulna
+      ki.
+    </p>
+    <p>Országos szinten nyilvántartáskor túl nagy területen kéne keresni (pl. beérkező híváskor), és szintén túl nagy
+      a forgalom.</p>
+    <p>A probléma megoldására egy kompromisszum alakult ki: a Location Area. Néhány (tipikusan 20-30) cella együttese, a
+      köztük való cellaváltáskor nincs helyzetfrissítés (Location update). Csak LA váltáskor van helyzetfrissítés.
+      Bejövő híváskor/SMS-kor broadcast keresési üzenet (paging) a Location Area-ban. Alapvetően ennél pontosabban
+      nem tárolja a hálózat, hogy hol vagyunk!</p>
+  </div>
+  <button class="accordion">Milyen GSM szolgáltatások léteznek?</button>
+  <div class="panel">
+    <p>Beszédátvitel: a kodek sebessége 13 kb/s (később: 5,6 kb/s is). Kompromisszum: viszonylag gyenge hangminőség,
+      jobb a frekvenciakihasználtság.</p>
+    <p>SMS: Short Message Service, rövid szöveges üzenet szolgáltatás, maximum 160 karakteres üzeneteket lehet küldeni.</p>
+    <p>Adatátvitel: kezdetben 9,6 kb/s, később 14,4 kb/s, majd ez folyamatosan nőtt.</p>
+    <p>MMS: Multimedia Messaging Service, multimédia üzenetküldő szolgáltatás: multimédia üzenet: kép, írott szöveg,
+      hang együtt, 2002-től elérhető.</p>
+  </div>
+  <button class="accordion">Miben egészítette ki a GPRS a GSM-et?</button>
+  <div class="panel">
+    <p>GPRS (General Packet Radio Service, általános csomag alapú rádiós szolgáltatás), csomagkapcsolt adatátvitellel
+      egészítette ki a GSM-et. Előnye a jobb kihasználtság, és fizetés kilobájt alapon, nem perc szerint. Adatsebesség
+      kb. 60-80 kb/s. Komoly hálózatfejlesztést igényelt.</p>
+  </div>
+  <button class="accordion">Hogy néz ki a GSM/GPRS hálózat?</button>
+  <div class="panel">
+    <p>(2/27-28)</p>
+  </div>
+  <button class="accordion">Miben egészítette ki az EDGE a GSM-et?</button>
+  <div class="panel">
+    <p>Az EDGE (Enhanced Data Rate for Global/GSM Evolution) 2003-ban jelent meg, javított modulációs eljárást hozott be:
+      eredetileg 1 bit/szimbólum volt (Gaussian minimum shift keying, GMSK), és ezt javította 8PSK, 3 bit/szimbólumra (háromszoros
+      adatátviteli sebesség). Ez csak jobb jel/zaj viszony esetén működik (kevésbé zavartűrő). Az adatsebesség
+      kb. 150-180 kb/s lett.</p>
+  </div>
+  <button class="accordion">Mik az áramkörkapcsolás jellemzői?</button>
+  <div class="panel">
+    <p>A klasszikus telefonhálózatok voltak áramkörkapcsoltak. Végponttól végpontig garantált minőségű csatornát szolgáltat.
+      A kommunikáció előtt hívásfelépítés, utána pedig lebontás történik. A csatornát csak a hívó és a hívott fél használhatja,
+      ha éppen nem beszélnek, üres a csatorna. Lehet fizikailag egy áramkör, de lehet általánosabb értelemben egy csatorna
+      (pl. adott időrés, adott frekvencia egy nyalábolt átviteli rendszerben).</p>
+  </div>
+  <button class="accordion">Miben változtatott ehhez képest a csomagkapcsolás?</button>
+  <div class="panel">
+    <p>A számítógép-hálózatok újdonsága volt, az átvitt információt kis csomagokra bontva továbbítja. Nem kell
+      hívásfelépítés, bontás a használthoz. Előnye a statikus multiplexelés: ha épp nincs kommunikáció, más is
+      használhatja a csatornát, így összességében nagyobb forgalom bonyolítható le ugyanakkora csatornán (és így
+      olcsóbb is). Hátránya, hogy a minőség (Quality of Service, QoS) nem garantált, külön feladat marad.</p>
+  </div>
+  <button class="accordion">Mik az UMTS céljai?</button>
+  <div class="panel">
+    <p>GSM-nél jobb beszédhangminőség, GSM-nél jobb frekvenciakihasználtság, GSM-nél nagyobb adatátviteli sebesség,
+      GSM kompatibilitás.</p>
+  </div>
+  <button class="accordion">Milyen szolgáltatásokat nyújt az UMTS?</button>
+  <div class="panel">
+    <p>Beszédátvitel az AMR kodekkel (4,7 - 12,2 kb/s)</p>
+    <p>Adatátvitel, Internet-elérés 3G-n keresztül (városban max 384 kb/s, vidéken 144 kb/s)</p>
+    <p>Multimédia szolgáltatások 3G felett: Videótelefonálás, TV adások közvetítése, rádióhallgatás , filmek, zenék
+      letöltése – ezek nem váltak be.</p>
+  </div>
+  <button class="accordion">Hogy néz ki az UMTS hálózat?</button>
+  <div class="panel">
+    <p>(3. diasor -> 7.oldal)</p>
+  </div>
+  <button class="accordion">Milyen duplexitás-kezelést használ az UMTS? (2)</button>
+  <div class="panel">
+    <p>FDD (nagyobb frekvencia a lefele irányban (nagyobb csillapítás nagyobb teljesítmény kell), TDD (a fel- és letöltés
+      időben váltakozik ugyanabban a frekvenciasávban, előnye: a fel/letöltés aránya dinamikusan változtatható az
+      aktuális igények függvényében).</p>
+  </div>
+  <button class="accordion">Hány MHz-s csatornákra osztják a rádiós közeget és milyen közeghozzáférést alkalmaznak benne?</button>
+  <div class="panel">
+    <p>5 MHz, CDMA</p>
+  </div>
+  <button class="accordion">Hogy működik a CDMA?</button>
+  <div class="panel">
+    <p>Minden jel „szét van kenve” a teljes spektrumra, de kis teljesítménnyel. Célja a jobb spektrumkihasználtság.</p>
+  </div>
+  <button class="accordion">Mik az UMTS kódosztás lépései?</button>
+  <div class="panel">
+    <p>1. Csatornakódolás</p>
+    <p>2. Csatornázási kódolás</p>
+    <p>3. Keverő kódolás</p>
+    <p>4. Rádiófrekvenciás modulálás, kisugárzás</p>
+  </div>
+  <button class="accordion">Mit csinál a csatornázási kód?</button>
+  <div class="panel">
+    <p>E kód a keskenysávú bemenő jelet szélessávúvá alakítja. A kiterjesztési faktor változik 4 és 512 között
+      mozog: azt adja meg, hogy hányszorosa lesz a chipsebesség a bitsebességnek (másképpen: hány chip hosszú egy
+      szóró kód, hány db szóró kód van). </p>
+    <p>A chipsebesség viszont mindig fix: 3 840 000 chip/sec</p>
+  </div>
+  <button class="accordion">Hogy működik a csatornázási kód?<</button>
+  <div class="panel">
+    <p>A digitális jelet összeszorozzuk (pontosabban: NOT(XOR(b1, b2))) egy ún. szóró kóddal (spreading code), és ezt
+      sugározzuk ki. A szóró kód bitsebességge (chiprate) sokkal nagyobb (kb. 100x), mint a jelé.</p>
+    <p>A szóró kódok ortogonálisak, azaz egy bitidőre átlagolva két szórókód szorzatát nullát kapunk.</p>
+  </div>
+  <button class="accordion">Miért működik ez tökéletesen ortogonális csatornázási kódokkal?</button>
+  <div class="panel">
+    <p>
+      <Kidolgozni>
+    </p>
+    <p>Azonban az ortogonalitás csak akkor teljesül, ha pontosan egy fázisban vannak a kódok. Nem azonos kezdőfázis esetén
+      sem magával, sem másik kóddal nem nulla a korrelációja, azaz közös órajel kell.</p>
+    <p>Gyakorlatban: azonos adó különböző csatornáinak elválasztására használják.</p>
+  </div>
+  <button class="accordion">Hogyan lehet OVSF kódokat generálni?</button>
+  <div class="panel">
+    <p>C2x,2y-1=(Cx,y,Cx,y) és C2x,2y =(Cx,y,-Cx,y)</p>
+    <p>Látszik, hogy 2n hosszú kódból 2n darab van.</p>
+    <p>Ortogonálitás bizonyítása: teljes indukcióval</p>
+  </div>
+  <button class="accordion">Mi a keverő kódolás célja?</button>
+  <div class="panel">
+    <p>A keverő kódok csak kvázi ortogonálisak egymásra, ugyanakkor önmaguk időbeli eltoltjára is kvázi ortogonálisak.
+      Fajtájuk ún. pseudo-noise, „ál-zaj” kódok, nevük Gold kód.</p>
+    <p>Célja az adóberendezések megkülönböztetése. Adónként van egy ilyen kód: lefele irány: cellák (azaz Node B-k)
+      elkülönítése, felfele irány: végberendezések elkülönítése. Nem igényelnek szinkronizációt a források
+      között, azonban nem teljes az ortogonalitás: a vevő az egyik forrás jelének dekódolásakor a többi forrás
+      jelét enyhe zajnak érzékeli. A cella kapacitását itt az szabja meg, hogy meddig nem zavaró még ez a zaj a dekódolásban.</p>
+    <p>Az NOT(XOR(a,b)) szorzás itt bitenként történik: egy bit a kódolandó jelfolyamból, egy bit a kódból. A kódszavak
+      hossza: lefele: 38 400 bit (10 msec-enként ismétlődik), felfele: 38 400 bit, vagy 256 bit. Ez utóbbi, ha a Node
+      B speciális vevővel rendelkezik (ún. rake vevő).</p>
+  </div>
 
 
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
 
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var panel = this.nextElementSibling;
         if (panel.style.display === "block") {
-            panel.style.display = "none";
+          panel.style.display = "none";
         } else {
-            panel.style.display = "block";
+          panel.style.display = "block";
         }
-    });
-}
-</script>
+      });
+    }
+  </script>
 
 </body>
+
 </html>
