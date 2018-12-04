@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./generate.py kerdesek/ .
+git add index.html
+git commit -m 'újabb kérdések'
+git push
